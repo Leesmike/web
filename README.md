@@ -3,3 +3,4 @@
 - [Чек-лист](https://docs.google.com/spreadsheets/d/1EQh79rNgiqckLNoDitmzOn94000iK3MuUhVeDcb4bbM/edit?gid=291804154#gid=291804154) для тестирования корзины и оплаты приложения интернет-магазин.
 - [Тест-кейсы](https://app.qase.io/project/G9?suite=175) для тестирования корзины и оплаты приложения интернет-магазин.
 - [PDF файл](https://github.com/Leesmike/web/blob/main/Mikhail%20Li%20-%20Cart%20and%20Order%20management%20test%20suite.pdf) с набором тест-кейсов для тестирования корзины и оплаты приложения интернет-магазин.
+- [XLSX файл](https://github.com/Leesmike/web/blob/main/Mikhail%20Li%20-%20Bug%20reports%20of%20cart%20and%20order%20management.xlsx) с отчётами о дефектах приложения интернет-магазин.
