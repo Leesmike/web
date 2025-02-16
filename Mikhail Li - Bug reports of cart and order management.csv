@@ -1,0 +1,455 @@
+﻿"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","State","Assignee","Sprints","Story points","App","Module","Description","Votes"
+"G9-764","Group 9","","История заказов: заголовки ""дата доставки"" и ""дата заказа"" перепутаны местами, неверный формат времени","root","8 Jan 2025 00:56","8 Jan 2025 01:46",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","History","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Пользователь совершил минимум одну покупку](https://app.qase.io/case/G9-1038).
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть историю заказов <https://qa.demoshopping.ru/history>
+* *Step 2*
+  Action: Проверить детализацию истории заказов пользователя: наличие для каждого заказа номера заказа, списка товаров, общей стоимости, даты оплаты и даты доставки
+
+### Actual result:
+
+Заголовки ""Примерная дата доставки"" и ""Дата заказа"" перепутаны местами. Заголовок ""Дата заказа"" должен называться ""Дата оплаты""
+
+![](G9-764.png){width=70%}
+
+
+
+**Expected Result:**
+
+Для каждого заказа отображается номер заказа, список товаров, общая стоимость, дата оплаты и дата доставки.
+
+
+
+
+
+Qase.io defect: [Наличие детализации истории заказов пользователя](https://app.qase.io/defect/G9/view/569)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-758","Group 9","","Оплата: неверный текст ошибки при оплате заблокированным PayPal","root","8 Jan 2025 00:41","8 Jan 2025 00:54",,"Low","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Наличие минимум одного товара в корзине](https://app.qase.io/case/G9-644). Наличие заблокированного аккаунта PayPal с достаточным для покупки балансом (был использован [тестовый PayPal аккаунт со статусом blocked и балансом 2000.00](https://artsiomrusau.youtrack.cloud/articles/FTT-A-1/Testovye-dannye-dlya-Visa-MasterCard-PayPal)). Наличие действующего email для отправки чека.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Нажать кнопку ""Оформить заказ""
+* *Step 3*
+  Action: Нажать радио кнопку ""PayPal"" в выборе метода оплаты
+* *Step 4*
+  Action: Заполнить поля данными
+
+  ""Email для PayPal"": ""blocked@email.com""
+
+  ""Email для отправки чека"": ""testsubject@email.com""
+* *Step 5*
+  Action: Нажать кнопку ""Оформить заказ""
+
+### Actual result:
+
+Заказ не оплачен. Вывод сообщения: ""Учетная запись PayPal заблокирована""
+
+![](G9-758.png){width=70%}
+
+
+
+**Expected Result:**
+
+Заказ не оплачен. Вывод сообщения: ""Ошибка оплаты. Попробуйте другой способ или попробуйте позже""
+
+
+
+Qase.io defect: [Оплата заказа заблокированным PayPal с достаточным для покупки балансом](https://app.qase.io/defect/G9/view/564)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-755","Group 9","","Оплата: неверный текст ошибки при оплате просроченной картой Visa","root","8 Jan 2025 00:14","8 Jan 2025 00:37",,"Low","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Наличие минимум одного товара в корзине](https://app.qase.io/case/G9-644). Наличие просроченной карты Visa с достаточным для покупки балансом (была использована [тестовая карта Visa со статусом expired и балансом 2000.00](https://artsiomrusau.youtrack.cloud/articles/FTT-A-1/Testovye-dannye-dlya-Visa-MasterCard-PayPal)). Наличие действующего email для отправки чека.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Нажать кнопку ""Оформить заказ""
+* *Step 3*
+  Action: Нажать радио кнопку ""Visa"" в выборе метода оплаты
+* *Step 4*
+  Action: Заполнить поля данными
+
+  ""Номер карты"": ""4340511554108849""
+
+  ""Имя"": ""Shang""
+
+  ""Фамилия"": ""Tsung""
+
+  ""ММ"": ""1""
+
+  ""ГГ"": ""20""
+
+  ""CVV"": ""789""
+
+  ""Email для отправки чека"": ""overworld@kahn.mk""
+* *Step 5*
+  Action: Нажать кнопку ""Оформить заказ""
+
+### Actual result:
+
+Заказ не оплачен. Вывод сообщения: ""Карта недействительна"".
+
+![](G9-755.png){width=70%}
+
+
+
+**Expected Result:**
+
+Заказ не оплачен. Вывод сообщения: ""Ошибка оплаты. Попробуйте другой способ или попробуйте позже"".
+
+
+
+Qase.io defect: [Оплата заказа просроченной картой Visa с достаточным для покупки балансом](https://app.qase.io/defect/G9/view/563)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-748","Group 9","","Оплата: неверный текст ошибки при оплате картой MasterCard с недостаточным балансом","root","7 Jan 2025 23:19","8 Jan 2025 00:28",,"Low","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Наличие товаров в корзине](https://app.qase.io/case/G9-644) с суммой большей, чем баланс карты. Наличие действующей карты MasterCard с недостаточным для покупки балансом (была использована [тестовая карта MasterCard со статусом valid и балансом 2000.00](https://artsiomrusau.youtrack.cloud/articles/FTT-A-1/Testovye-dannye-dlya-Visa-MasterCard-PayPal)). Наличие действующего email для отправки чека.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Нажать кнопку ""Оформить заказ""
+* *Step 3*
+  Action: Нажать радио кнопку ""MasterCard"" в выборе метода оплаты
+* *Step 4*
+  Action: Заполнить поля данными
+
+  
+
+  ""Номер карты"": ""5248106661644884""
+
+  ""Имя"": ""John""
+
+  ""Фамилия"": ""Doe""
+
+  ""ММ"": ""12""
+
+  ""ГГ"": ""26""
+
+  ""CVV"": ""456""
+
+  ""Email для отправки чека"": ""testsubject@email.com""
+
+  
+* *Step 5*
+  Action: Нажать кнопку ""Оформить заказ""
+
+### Actual result:
+
+Заказ не оплачен. Вывод сообщения ""Недостаточно средств на карте""
+
+![](G9-748.mkv){width=70%}
+
+![](G9-748.png){width=70%}
+
+**Expected Result:**
+
+Заказ не оплачен. Вывод сообщения: ""Ошибка оплаты. Попробуйте другой способ или попробуйте позже"".
+
+
+
+Qase.io defect: [Оплата заказа действующей картой MasterCard с недостаточным для покупки балансом](https://app.qase.io/defect/G9/view/558)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-702","Group 9","","Оплата: отсутствие валидации при вводе кириллицы в поле ""Имя"" при оплате Visa/MasterCard","esparmansion","7 Jan 2025 18:50","7 Jan 2025 23:57",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### **Preconditions:**
+
+Наличие заказа, ожидающего оплаты. Пользователь авторизован
+
+### **Steps to reproduce**
+
+* *Step 1*
+  Action: Открыть страницу оплаты <https://qa.demoshopping.ru/payment>
+* *Step 2*
+  Action: Заполнить поля данными (использовалась [тестовая карта Visa со статусом valid и балансом 2000.00](https://artsiomrusau.youtrack.cloud/articles/FTT-A-1/Testovye-dannye-dlya-Visa-MasterCard-PayPal))
+
+  ""Номер карты"": ""8820354696467284""
+
+  ""Имя"": ""Вася""
+
+  ""Фамилия"": ""Subject""
+
+  ""ММ"": ""12""
+
+  ""ГГ"": ""26""
+
+  ""CVV"": ""123""
+
+  ""Email для отправки чека"": ""testsubject@email.com""
+* *Step 3*
+  Action: Нажать кнопку ""Оформить заказ""
+
+### **Actual result:**
+
+Заказ успешно оплачен при указании имени кириллицей
+
+![](G9-702.mkv){width=70%}
+
+### **Expected Result:**
+
+Заказ не оплачен, показывается сообщение об ошибке: ""Имя должно содержать только буквы латинского алфавита"" под полем ""Имя""
+
+![](G9-702.png){width=70%}
+
+Дефект найден в ходе выполнения [проверок чек-листа](https://docs.google.com/spreadsheets/d/1EQh79rNgiqckLNoDitmzOn94000iK3MuUhVeDcb4bbM/edit?gid=291804154#gid=291804154)","0"
+"G9-742","Group 9","","Оплата: применённая бесплатная доставка не отображается в итоговой стоимости","root","7 Jan 2025 22:56","7 Jan 2025 23:11",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. Наличие в каталоге минимум одного товара с бесплатной доставкой.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Выбрать в каталоге товар с опцией ""Бесплатная доставка: да"" и нажать ""Добавить в корзину""
+* *Step 3*
+  Action: Нажать ""Корзина"" в шапке сайта
+* *Step 4*
+  Action: Нажать ""Оформить заказ""
+* *Step 5*
+  Action: Проверить сумму заказа товара
+
+### Actual result:
+
+Применённая бесплатная доставка не отображается в итоговой стоимости
+
+![](G9-742.mkv){width=70%}
+
+![](G9-742 wrong.png){width=70%}
+
+**Expected Result:**
+
+Бесплатная доставка отражается в сумме заказа
+
+![](G9-742 right.png){width=70%}
+
+
+
+Qase.io defect: [Отображение применённой бесплатной доставки в сумме заказа](https://app.qase.io/defect/G9/view/554)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-740","Group 9","","Оплата: прибавление 6 USD вместо 5 при отсутствии бесплатной доставки","root","7 Jan 2025 22:44","7 Jan 2025 22:56",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. Наличие в каталоге минимум одного товара с отсутствующей бесплатной доставкой.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Выбрать в каталоге товар с опцией ""Бесплатная доставка: нет"" и нажать ""Добавить в корзину""
+* *Step 3*
+  Action: Нажать ""Корзина"" в шапке сайта
+* *Step 4*
+  Action: Нажать ""Оформить заказ""
+* *Step 5*
+  Action: Проверить сумму заказа товара
+
+### Actual result:
+
+Прибавление 6 USD вместо 5 USD к сумме заказа при отсутствии бесплатной доставки
+
+![](G9-740.mkv){width=70%}
+
+![](G9-740.png){width=70%}
+
+**Expected Result:**
+
+Прибавление 5 USD к сумме заказа при отсутствии бесплатной доставки
+
+
+
+Qase.io defect: [Прибавление 5 USD к сумме заказа при отсутствии бесплатной доставки](https://app.qase.io/defect/G9/view/551)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-698","Group 9","","Корзина: битая ссылка на страницу ""Политика использования""","esparmansion","7 Jan 2025 17:58","7 Jan 2025 22:39",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Cart","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### **Preconditions:**
+
+Пользователь авторизован
+
+### **Steps to reproduce**
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Нажать ""Политика использования"" в футере
+
+### **Actual result:**
+
+Ошибка перенаправления на страницу ""Политика использования"" (<https://qa.demoshopping.ru/polic>) [неверно указанная ссылка, **/polic** вместо **/policy**]
+
+![](G9-698.mkv){width=70%}
+
+![](G9-698 short.mkv){width=70%}
+
+### **Expected Result:**
+
+Перенаправление на страницу ""Политика использования"" (<https://qa.demoshopping.ru/policy>)
+
+
+
+Дефект найден в ходе выполнения [проверок чек-листа](https://docs.google.com/spreadsheets/d/1EQh79rNgiqckLNoDitmzOn94000iK3MuUhVeDcb4bbM/edit?gid=0#gid=0)","0"
+"G9-728","Group 9","","Корзина: счётчик товаров в корзине не скрывается при выходе пользователя из системы","root","7 Jan 2025 21:47","7 Jan 2025 22:38",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Cart","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: В шапке сайта нажать ""Выйти""
+
+### Actual result:
+
+Выход из системы. Счётчик товаров в корзине остаётся видимым.
+
+![](G9-728.mkv){width=70%}
+
+![](G9-728.png){width=70%}
+
+**Expected Result:**
+
+Выход из системы. Счётчик товаров в корзине скрыт и не показывается.
+
+
+
+Qase.io defect: [Скрытие счётчика товаров в корзине при выходе из системы](https://app.qase.io/defect/G9/view/542)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-723","Group 9","","Корзина: отсутствие уведомления при установке количества товара меньше 1","root","7 Jan 2025 21:25","7 Jan 2025 22:37",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Cart","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Наличие как минимум одного товара в корзине](https://app.qase.io/case/G9-644).
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Установить счётчик количества товара на 0 (ноль) с помощью клавиатуры
+
+### Actual result:
+
+Отсутствие уведомления: ""Количество товара не может быть меньше 1""
+
+![](G9-723.png){width=70%}
+
+**Expected Result:**
+
+Вывод уведомления: ""Количество товара не может быть меньше 1""
+
+
+
+Qase.io defect: [Вывод уведомления при установке количества товара в корзине меньше 1](https://app.qase.io/defect/G9/view/535)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-719","Group 9","","Корзина: неверный текст ошибки при оформлении заказа с пустой корзиной","root","7 Jan 2025 21:11","7 Jan 2025 22:37",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Cart","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. В корзине отсутствуют добавленные товары.
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть корзину <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: Нажать ""Оформить заказ""
+
+### Actual result:
+
+Вывод сообщения: ""Ошибка при оформлении заказа. Пожалуйста, попробуйте еще раз""
+
+![](G9-719.png){width=70%}
+
+**Expected Result:**
+
+Вывод сообщения: ""Ваша корзина пуста. Добавьте товары перед оформлением заказа""
+
+
+
+Qase.io defect: [Оформление заказа авторизованным пользователем при пустой корзине](https://app.qase.io/defect/G9/view/528)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-733","Group 9","","Оплата: отображение названия кнопки ""Delete"" вместо ""Удалить""","root","7 Jan 2025 22:16","7 Jan 2025 22:35",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован. [Наличие оформленного заказа](https://app.qase.io/case/G9-993).
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть страницу оплаты <https://qa.demoshopping.ru/payment>
+* *Step 2*
+  Action: Проверить наличие кнопки ""Удалить"" товар
+
+  
+
+### Actual result:
+
+Кнопка ""Удалить"" отображается как ""Delete""
+
+![](G9-733.png){width=70%}
+
+**Expected Result:**
+
+Кнопка отображается правильно: ""Удалить""
+
+
+
+Qase.io defect: [Наличие деталей заказа на странице оплаты](https://app.qase.io/defect/G9/view/547)
+Found in test run: [Express run 2025/01/07](https://app.qase.io/run/G9/dashboard/114)","0"
+"G9-706","Group 9","","Оплата: отсутствие валидации при вводе 13 в поле ""ММ"" (месяц) при оплате Visa/MasterCard","esparmansion","7 Jan 2025 19:38","7 Jan 2025 19:42",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Orders","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### **Preconditions:**
+
+Пользователь авторизован
+
+### **Steps to reproduce**
+
+* *Step 1*
+  Action: Открыть страницу оплаты <https://qa.demoshopping.ru/payment>
+* *Step 2*
+  Action: Ввести в поле ""ММ"" (месяц) число ""13""
+* *Step 3*
+  Action: Нажать кнопку ""Оформить заказ""
+
+### **Actual result:**
+
+Отсутствует валидация при вводе 13 в поле ""ММ""
+
+![](G9-706.mkv){width=70%}
+
+### **Expected Result:**
+
+Валидация срабатывает, показывается сообщения об ошибке: ""Месяц истечения срока должен быть числом от 1 до 12"" под полем ""ММ""
+
+![](G9-706.png){width=70%}
+
+Дефект найден в ходе выполнения [проверок чек-листа](https://docs.google.com/spreadsheets/d/1EQh79rNgiqckLNoDitmzOn94000iK3MuUhVeDcb4bbM/edit?gid=291804154#gid=291804154)","0"
