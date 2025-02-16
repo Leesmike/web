@@ -1,0 +1,324 @@
+﻿"Issue Id","Project","Tags","Summary","Reporter","Created","Updated","Resolved","Priority","Type","State","Assignee","Sprints","Story points","App","Module","Description","Votes"
+"G9-416","Group 9","","Каталог: успешное добавление 0 товаров в корзину","root","25 Dec 2024 14:46","25 Dec 2024 18:09",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Наличие как минимум одного товара в каталоге. Пользователь авторизован
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Установить счётчик товара на 0 (ноль) с помощью клавиатуры
+* *Step 3*
+  Action: Нажать кнопку ""Добавить в корзину"" под карточкой с товаром
+
+### Actual result:
+
+Товар был успешно добавлен в корзину
+
+![](G9-416.mkv){width=70%}
+
+### Expected Result:
+
+Добавление товара не происходит. Выводится сообщение об ошибке
+
+
+
+Qase.io defect: [Добавление 0 товара в корзину авторизованным пользователем](https://app.qase.io/defect/G9/view/333)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-420","Group 9","","Каталог: успешное добавление дробного количества товара в корзину","esparmansion","25 Dec 2024 16:29","25 Dec 2024 18:09",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### **Preconditions:**
+
+Наличие как минимум одного товара в каталоге. Пользователь авторизован
+
+### **Steps to reproduce**
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Установить счётчик товара на 0.5 (через точку) с помощью клавиатуры
+* *Step 3*
+  Action: Нажать кнопку ""Добавить в корзину"" под карточкой с товаром
+
+### **Actual result:**
+
+Товар был успешно добавлен в корзину (также воспроизводится с 0,X (через запятую))
+
+![](G9-420.mkv){width=70%}
+
+### **Expected Result:**
+
+Добавление товара не происходит. Выводится сообщение об ошибке","0"
+"G9-425","Group 9","","Каталог: отображение на странице 5 товаров вместо 6 при пагинации","esparmansion","25 Dec 2024 17:45","25 Dec 2024 18:08",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### **Preconditions:**
+
+Наличие как минимум 13 товаров в каталоге.
+
+### **Steps to reproduce**
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Проверить количество выводимых карточек товара
+* *Step 3*
+  Action: Перейти на следующую страницу
+* *Step 4*
+  Action: Проверить количество выводимых карточек товара
+
+### **Actual result:**
+
+Вывод 5 карточек товара вместо 6 на странице
+
+![](G9-425.png){width=70%}
+
+
+
+**Expected result:**
+
+Вывод 6 карточек товара на странице","0"
+"G9-422","Group 9","","Корзина: вывод цены товара в несоответствующей денежной единице","root","25 Dec 2024 17:13","25 Dec 2024 17:32",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Cart","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Наличие как минимум одного товара в каталоге. Пользователь авторизован
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Нажать кнопку ""Добавить в корзину"" под карточкой с товаром
+* *Step 3*
+  Action: Нажать на ""Корзина"" в шапке сайта
+
+### Actual result:
+
+Вывод цены товара в другой денежной единице (рубли вместо USD)
+
+
+
+![](G9-422.png){width=70%}
+
+**Expected result:**
+
+Вывод цены товара в USD
+
+
+
+Qase.io defect: [Добавление товара в корзину авторизованным пользователем](https://app.qase.io/defect/G9/view/336)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-417","Group 9","","Фильтрация: отсутствие уведомления если применение фильтров не изменяет список товаров","root","25 Dec 2024 15:28","25 Dec 2024 16:14",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: В блоке ""Фильтрация"" выбрать ""Laptops"" в списке категории
+* *Step 3*
+  Action: В блоке ""Фильтрация"" выбрать ""Huawei"" в списке производители
+* *Step 4*
+  Action: Нажать кнопку ""Применить фильтры"" (выводится 3 Huawei laptops)
+* *Step 5*
+  Action: В блоке ""Фильтрация"" установить в поле ""Мин. цена"" значение ""393""
+* *Step 6*
+  Action: Нажать кнопку ""Применить фильтры"" (выводится 3 Huawei laptops)
+
+### Actual result:
+
+Отсутствие уведомления о том, что список товаров не был изменён
+
+![](G9-417.mkv){width=70%}
+
+
+
+**Expected result:**
+
+Вывод уведомления: ""Список товаров не изменён""
+
+
+
+Qase.io defect: [Вывод уведомления, если применение фильтров не изменяет список товаров](https://app.qase.io/defect/G9/view/334)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-414","Group 9","","Сортировка по цене: при выборе ""Цена по возрастанию"" сортировка происходит по убыванию","root","25 Dec 2024 14:05","25 Dec 2024 14:47",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Наличие минимум двух товаров с разной ценой
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Выбрать ""Цена по возрастанию"" в выпадающем меню ""Сортировка"" над списком карточек товаров
+
+### Actual result:
+
+Товары отсортированы по цене от наибольшей к наименьшей (по убыванию)
+
+![](G9-414.mkv){width=70%}
+
+
+
+![](G9-414.png){width=70%}
+
+
+
+**Expected Result:**
+
+Товары отсортированы по цене от наименьшей к наибольшей (по возрастанию)
+
+
+
+Qase.io defect: [Сортировка списка товаров по цене: убывающей, возрастающей](https://app.qase.io/defect/G9/view/330)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-413","Group 9","","Сортировка по цене: при выборе ""Цена по убыванию"" сортировка происходит по возрастанию","root","25 Dec 2024 13:37","25 Dec 2024 14:47",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Catalog","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Наличие минимум двух товаров с разной ценой
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: Выбрать ""Цена по убыванию"" в выпадающем меню ""Сортировка"" над списком карточек товаров
+
+### Actual result:
+
+Товары отсортированы по цене от наименьшей к наибольшей (по возрастанию)
+
+![](G9-413.mkv){width=70%}
+
+![](G9-413.png){width=70%}
+
+**Expected Result:**
+
+Товары отсортированы по цене от наибольшей к наименьшей (по убыванию)
+
+
+
+Qase.io defect: [Сортировка списка товаров по цене: убывающей, возрастающей](https://app.qase.io/defect/G9/view/329)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-411","Group 9","","Выход из системы: отсутствие перенаправления на главную страницу/страницу входа","root","25 Dec 2024 12:32","25 Dec 2024 13:22",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Login","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь авторизован
+
+### Steps to reproduce
+
+* *Step 1*
+  Action: Открыть страницу с корзиной <https://qa.demoshopping.ru/cart>
+* *Step 2*
+  Action: В шапке сайта нажать кнопку ""Выйти""
+
+### Actual result:
+
+Пользователь остаётся на текущей странице
+
+![](G9-411.mkv){width=70%}
+
+**Expected Result:**
+
+Перенаправление на страницу входа или главную страницу
+
+Qase.io defect: [Выход из системы при нажатии кнопки ""Выйти""](https://app.qase.io/defect/G9/view/325)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-408","Group 9","","Доступ к корзине/оплате/истории заказов: сообщение о необходимости авторизации перенаправляет на главную страницу вместо входа","root","25 Dec 2024 11:52","25 Dec 2024 12:15",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Login","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь не авторизован
+
+### Steps to reproduce:
+
+* *Step 1*
+  Action: Открыть главную страницу <https://qa.demoshopping.ru/>
+* *Step 2*
+  Action: В шапке сайта нажать на ""Корзина"" (также воспроизводится с ""Оплата"" и ""История заказов"")
+* *Step 3*
+  Action: Нажать на ссылку в сообщении о необходимости войти в систему
+
+### Actual result
+
+Перенаправление на главную страницу <https://qa.demoshopping.ru/>
+
+![](G9-408_2.mkv){width=70%}
+
+### Expected Result:
+
+Перенаправление на страницу авторизации <https://qa.demoshopping.ru/login>
+
+Qase.io defect: [Сообщение о необходимости авторизации перенаправляет пользователя на страницу входа](https://app.qase.io/defect/G9/view/323)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-407","Group 9","","Авторизация: неверный текст ошибки при авторизации пользователя с неправильным паролем","root","25 Dec 2024 11:29","25 Dec 2024 11:43",,"Medium","Bug","New","Unassigned","Unscheduled",,"Web","Login","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь зарегистрирован в системе (login: leva, password: qwerty12). Пользователь не авторизован
+
+### Steps to reproduce:
+
+* *Step 1*
+  Action: Открыть страницу регистрации и авторизации <https://qa.demoshopping.ru/login>
+* *Step 2*
+  Action: В блоке ""Вход"" в поле ""Логин"" ввести: leva
+* *Step 3*
+  Action: В блоке ""Вход"" в поле ""Пароль"" ввести неправильный пароль: qwerty23 (правильный пароль пользователя qwerty12)
+* *Step 4*
+  Action: Нажать кнопку ""Войти""
+
+### Actual result:
+
+Выводится сообщение: ""Произошла ошибка при обработке запроса""
+
+![](G9-407.png){width=70%}
+
+
+
+**Expected Result:**
+
+Выводится сообщение: ""Неверное имя пользователя или пароль""
+
+
+
+Qase.io defect: [Авторизация существующего пользователя с ошибкой в пароле](https://app.qase.io/defect/G9/view/322)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
+"G9-406","Group 9","","Регистрация: неверный текст ошибки при регистрации с логином из 2 символов","root","25 Dec 2024 10:41","25 Dec 2024 11:17",,"Medium","Bug","New","root","Unscheduled",,"Web","Registration","**Environment:** Windows 11 Pro Version 24H2 Build 26100.2605, Google Chrome 131.0.6778.205 (x64 bit)
+
+### Preconditions:
+
+Пользователь никогда не был зарегистрирован в системе
+
+### Steps to reproduce:
+
+* *Step 1*
+  Action: Открыть страницу регистрации и авторизации <https://qa.demoshopping.ru/login>
+* *Step 2*
+  Action: В блоке ""Регистрация"" в поле ""Логин"" ввести логин латиницей из 2 символов. Пример: ui
+* *Step 3*
+  Action: В блоке ""Регистрация"" в поле ""Пароль"" ввести пароль от 8 символов включая минимум одну латинскую букву и одну цифру. Пример: qwerty12
+* *Step 4*
+  Action: Нажать кнопку ""Зарегистрироваться""
+
+### Actual result:
+
+Выводится сообщение: ""Произошла ошибка при обработке запроса""
+
+![](G9-406_1.png){width=70%}
+
+### Expected Result
+
+Выводится сообщение: ""Логин должен содержать от 3 до 15 символов и может включать буквы, цифры и символы: _""
+
+
+
+Qase.io defect: [Регистрация пользователя с логином из 2 символов](https://app.qase.io/defect/G9/view/321)
+Found in test run: [Express run 2024/12/25](https://app.qase.io/run/G9/dashboard/72)","0"
